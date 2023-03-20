@@ -160,7 +160,7 @@ void assert_failed(uint8_t *file, uint32_t line)
  
  LED IS OFF
  
- ![pmc 1](https://user-images.githubusercontent.com/121418522/226343495-ec9bca1d-0f5a-4f0f-92c9-40dbf6c94d5d.jpg)
+![pmc 1](https://user-images.githubusercontent.com/121418522/226344056-6b89fefe-cd43-478b-aa11-94bffa70f4b6.png)
 
  LED IS ON
  
