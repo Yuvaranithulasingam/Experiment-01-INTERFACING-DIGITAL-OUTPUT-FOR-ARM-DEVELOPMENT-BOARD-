@@ -158,11 +158,9 @@ void assert_failed(uint8_t *file, uint32_t line)
  
 ## Output  :
 
- LED IS OFF
 ![pmc 1](https://user-images.githubusercontent.com/121418522/226344056-6b89fefe-cd43-478b-aa11-94bffa70f4b6.png)
 
- LED IS ON
- ![pmc 2](https://user-images.githubusercontent.com/121418522/226343593-c858801e-4540-4a81-91c5-6fe96a19469a.png)
+![pmc 2](https://user-images.githubusercontent.com/121418522/226343593-c858801e-4540-4a81-91c5-6fe96a19469a.png)
 
 ## Result :
 Interfacing a digital output with ARM microcontroller is executed and the results are verified.
