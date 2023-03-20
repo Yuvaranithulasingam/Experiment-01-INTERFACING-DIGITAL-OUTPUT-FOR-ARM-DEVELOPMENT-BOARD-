@@ -85,17 +85,14 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void led();
 int main(void)
-{
- HAL_Init();
- SystemClock_Config();
- MX_GPIO_Init();
-  
-  while (1)
+HAL_Init();
+SystemClock_Config();
+MX_GPIO_Init();
+ while (1)
   {
 	  led();
-   
-  }
-  
+   }
+
 }
 void led()
 {
@@ -104,13 +101,11 @@ void led()
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
 	HAL_Delay(787);
 }
-
-
-
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
@@ -120,7 +115,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
- 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
@@ -132,16 +126,11 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-
   __HAL_RCC_GPIOA_CLK_ENABLE();
-
- 
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
   GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -149,26 +138,34 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
-
 void Error_Handler(void)
 {
-  
+    __disable_irq();
   while (1)
   {
   }
- 
+}
+
+#ifdef  USE_FULL_ASSERT
+
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  
+
+
 }
-#endif 
-
+#endif /* USE_FULL_ASSERT
+```
+ 
 ## Output  :
+ 
+ LED IS OFF
+ 
+ ![pmc 1](https://user-images.githubusercontent.com/121418522/226343495-ec9bca1d-0f5a-4f0f-92c9-40dbf6c94d5d.jpg)
 
+ LED IS ON
  
- 
- 
- 
+ ![pmc 2](https://user-images.githubusercontent.com/121418522/226343593-c858801e-4540-4a81-91c5-6fe96a19469a.png)
+
 ## Result :
 Interfacing a digital output with ARM microcontroller is executed and the results are verified.
 
